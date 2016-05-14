@@ -29,3 +29,12 @@ with 'C:\drive_test' replaced by the desired output directory.
 
 Copyright © 2011 Peter Bankhead.
 See the file : Copyright.m for further details.
+
+
+------------------------------------------------------
+
+CHANGELOG
+
+2011-12-09 - Initial version
+
+2016-04-10 - Minor updates to for compatibility with more recent MATLAB versions

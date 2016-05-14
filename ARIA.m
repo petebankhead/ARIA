@@ -243,12 +243,13 @@ function initialize(hObject)
 handles = guidata(hObject);
 fpath = fileparts(mfilename('fullpath'));
 handles.prefsfile = fullfile(fpath, 'ARIA_prefs.mat');
-% There is a preferences file, try to read it
+% If there is a preferences file, try to read it
 if exist(handles.prefsfile, 'file')
     % Read values for checkboxes etc.
     try
-        load(handles.prefsfile);
-        handles.settings = settings;
+        s = load(handles.prefsfile);
+        checked_menu_items = s.checked_menu_items;
+        handles.settings = s.settings;
         % Initialize menu items
         set(findobj('Type', 'uimenu'), 'Checked', 'off');
         for ii = 1:numel(checked_menu_items)
@@ -257,6 +258,7 @@ if exist(handles.prefsfile, 'file')
     catch ME
         errordlg('Preference file corrupted or incomplete! Will try to continue...');
         disp(ME);
+        handles.settings = Vessel_Settings;
     end
 else
     handles.settings = Vessel_Settings;
@@ -280,12 +282,12 @@ end
 set(handles.menu_plot_both, 'checked', 'off');
 set(handles.menu_plot_markers, 'checked', 'off');
 set(handles.menu_plot_lines, 'checked', 'off');
-if handles.menu_double_buffer
+if ~isempty(handles.menu_double_buffer)
     set(handles.menu_double_buffer, 'checked', 'on');
 else
     set(handles.menu_double_buffer, 'checked', 'off');
 end
-if handles.settings.plot_markers
+if ~isempty(handles.settings.plot_markers)
     if handles.settings.plot_lines
         set(handles.menu_plot_both, 'checked', 'on');
     else
