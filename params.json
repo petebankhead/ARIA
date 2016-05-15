@@ -1,0 +1,6 @@
+{
+  "name": "ARIA",
+  "tagline": "Retinal vessel analysis software for MATLAB",
+  "body": "### Automated Retinal Image Analyzer\r\nARIA is software written for MATLAB to detect and measure retinal blood vessels in both fluorescein angiograms and fundus photographs.\r\n\r\nIt was developed by Pete Bankhead and is described in the PLOS ONE paper [Fast retinal vessel detection and measurement using wavelets and edge location refinement](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0032435).",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
