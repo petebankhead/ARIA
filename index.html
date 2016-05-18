@@ -28,12 +28,65 @@
         </ul>
       </header>
       <section>
-        <h3>
-<a id="automated-retinal-image-analyzer" class="anchor" href="#automated-retinal-image-analyzer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Automated Retinal Image Analyzer</h3>
+        <p><img src="images/aria_singing.jpg" alt="Singing vessel">
+<img src="images/aria_measuring.jpg" alt="Measuring vessel"></p>
 
-<p>ARIA is software written for MATLAB to detect and measure retinal blood vessels in both fluorescein angiograms and fundus photographs.</p>
+<h2>
+<a id="background" class="anchor" href="#background" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Background</h2>
 
-<p>It was developed by Pete Bankhead and is described in the PLOS ONE paper <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0032435">Fast retinal vessel detection and measurement using wavelets and edge location refinement</a>.</p>
+<p>ARIA (Automated Retinal Image Analyzer) implements the vessel detection and diameter measurement algorithms described in:</p>
+
+<p><a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0032435">Bankhead P, Scholfield CN, McGeown JG, Curtis TM (2012)
+<em>Fast Retinal Vessel Detection and Measurement Using Wavelets and Edge Location Refinement.</em>
+PLoS ONE 7(3): e32435. doi:10.1371/journal.pone.0032435</a></p>
+
+<p>In addition, it has been written in such a way as to allow the user-friendly adaption of parameters to other image types, or integration of alternative algorithms (or pieces of algorithms) related to retinal image analysis.</p>
+
+<p>If you are a researcher and find a use for this software, please cite the paper above in any related publications.  Also, if you are developer who would like to use ARIA as a basis for your own retinal image software, please consider forking this project and also cite the paper whenever it is used.</p>
+
+<h2>
+<a id="running" class="anchor" href="#running" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Running</h2>
+
+<p>To run ARIA, simply open MATLAB and navigate so that the 'Current folder' is the one containing this README.  Then type
+    ARIA
+at the command prompt.  Alternatively, right-click on the file ARIA.m and choose 'Run'.</p>
+
+<p>If you want to be able to run ARIA without needing to navigate to the correct directory in MATLAB every time, type
+    ARIA_setup
+once at the command prompt.  The directories should then be saved.</p>
+
+<hr>
+
+<h2>
+<a id="testing" class="anchor" href="#testing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Testing</h2>
+
+<p>To reproduce the results reported in the paper 'Fast retinal vessel detection and measurement using wavelets and edge location refinement', or to apply the timings using a different test system, you can simply run the file 'ARIA_run_tests.m'.  Note that you will need to download the DRIVE (<a href="http://www.isi.uu.nl/Research/Databases/DRIVE/">http://www.isi.uu.nl/Research/Databases/DRIVE/</a>) and REVIEW (<a href="http://reviewdb.lincoln.ac.uk/">http://reviewdb.lincoln.ac.uk/</a>) image databases first.  The first time you run the tests, you will also need to select the directories in which these databases are saved.</p>
+
+<p>Before trying the tests, you should ideally also run ARIA itself and open any suitable retinal image.  This ensures that the software is set up properly, and also calls the analysis algorithm once - which makes the timing measurements more repeatable, because calling the code in MATLAB the first time tends to be much slower than any subsequent calls.</p>
+
+<p>Relatedly, if you have the TIMEIT benchmarking function (by Steve Eddins, available at <a href="http://www.mathworks.com/matlabcentral/fileexchange/18798-timeit-benchmarking-function">http://www.mathworks.com/matlabcentral/fileexchange/18798-timeit-benchmarking-function</a>) either in this directory or elsewhere on the MATLAB search path, this will be used when testing the DRIVE segmentation times to get more robust results.  It executes the code being profiled multiple times and reports the median as the time taken.  This is particularly important when dealing with very short processing times.</p>
+
+<p>For more information about running individual tests, type
+    help ARIA_run_tests
+or explore the help information about the other .m files in the test directory.  Where possible, a general function is used to implement the actual testing, and this could be used along with different algorithms or vessel processors to make similar comparisons.</p>
+
+<p>Finally, to save the binary images resulting from segmentating the DRIVE database images only, use the function
+    DRIVE_save_segmented_images('C:\drive_test')
+with 'C:\drive_test' replaced by the desired output directory.</p>
+
+<hr>
+
+<p>Copyright © 2011 Peter Bankhead.
+See the file : Copyright.m for further details.</p>
+
+<hr>
+
+<h2>
+<a id="changelog" class="anchor" href="#changelog" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CHANGELOG</h2>
+
+<p>2011-12-09 - Initial version</p>
+
+<p>2016-04-10 - Minor updates to for compatibility with more recent MATLAB versions</p>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/petebankhead">petebankhead</a></p>
