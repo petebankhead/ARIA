@@ -1,4 +1,19 @@
-RUNNING
+Background
+----------
+
+ARIA (Automated Retinal Image Analyzer) implements the vessel detection and diameter measurement algorithms described in:
+
+[Bankhead P, Scholfield CN, McGeown JG, Curtis TM (2012)
+*Fast Retinal Vessel Detection and Measurement Using Wavelets and Edge Location Refinement.*
+PLoS ONE 7(3): e32435. doi:10.1371/journal.pone.0032435](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0032435)
+
+In addition, it has been written in such a way as to allow the user-friendly adaption of parameters to other image types, or integration of alternative algorithms (or pieces of algorithms) related to retinal image analysis.
+
+If you are a researcher and find a use for this software, please cite the paper above in any related publications.  Also, if you are developer who would like to use ARIA as a basis for your own retinal image software, please consider forking this project and also cite the paper whenever it is used.
+
+
+Running
+-------
 
 To run ARIA, simply open MATLAB and navigate so that the 'Current folder' is the one containing this README.  Then type
 	ARIA
@@ -10,7 +25,9 @@ once at the command prompt.  The directories should then be saved.
 
 
 ------------------------------------------------------
-TESTING
+
+Testing
+-------
 
 To reproduce the results reported in the paper 'Fast retinal vessel detection and measurement using wavelets and edge location refinement', or to apply the timings using a different test system, you can simply run the file 'ARIA_run_tests.m'.  Note that you will need to download the DRIVE (http://www.isi.uu.nl/Research/Databases/DRIVE/) and REVIEW (http://reviewdb.lincoln.ac.uk/) image databases first.  The first time you run the tests, you will also need to select the directories in which these databases are saved.
 
@@ -26,14 +43,15 @@ Finally, to save the binary images resulting from segmentating the DRIVE databas
 	DRIVE_save_segmented_images('C:\drive_test')
 with 'C:\drive_test' replaced by the desired output directory.
 
+------------------------------------------------------
 
-Copyright © 2011 Peter Bankhead.
+Copyright &copy; 2011 Peter Bankhead.
 See the file : Copyright.m for further details.
-
 
 ------------------------------------------------------
 
 CHANGELOG
+---------
 
 2011-12-09 - Initial version
 
